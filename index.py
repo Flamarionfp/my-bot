@@ -88,10 +88,11 @@ class Bot:
 
     # Função Abrir Discord
 
-    def openDiscord(self):
-        #print("Abrindo Discord...")
-        os.startfile(
-            r"C:\Users\Admin\AppData\Local\Discord\Update.exe --processStart Discord.exe")
+    # def openDiscord(self):
+    #     #print("Abrindo Discord...")
+    #     os.startfile(
+    #         r"C:\Users\Admin\AppData\Local\Discord\Update.exe --processStart Discord.exe"
+    #     )
 
     # Função Abrir aula de Redes
     def openNetworkClass(self):
@@ -123,7 +124,7 @@ def openDevelopEnvironment():
     bot.openPostman()
     bot.openVsCode()
     bot.openAndroidStudio()
-    bot.openDiscord()
+    # bot.openDiscord()
 
 
 def openGitsPages():
@@ -150,9 +151,16 @@ print(resp)
 while True:
     while resp in comands:
         #print('Comando existe')
+        if resp == comands[0]:
+            print('{}: Abrindo o ambiente de desenvolvimento, {}!'.format(
+                botName, userName
+            ))
+            openDevelopEnvironment()
+
         print("{}: O que mais posso ajudar {}? ".format(bot.name, userName))
         resp = str(input()).lower().strip()
         break
     else:
-        print('Comando inválido')
+        print('{}: Desculpe, mas eu ainda não entendo esse comando, {}'.format(
+            botName, userName))
         resp = str(input()).lower().strip()
